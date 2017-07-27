@@ -1,0 +1,17 @@
+
+<h1>Searching for - <%= @search_term %></h1>
+
+<table border="1">
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Social rank</th>
+    </tr>
+    <% @recipes.each do |recipes| %>
+    <tr class=<%= cycle('even', 'odd') %>>
+        <td><%= link_to image_tag(recipes["image_url"],height: '100', width: '100'), "http://food2fork.com/"%></td>
+        <td><%= sanitize recipes["title"].body %></td>
+        <td><%= recipes["source_rank"] %></td>
+    </tr>
+    <% end %>
+</table>
